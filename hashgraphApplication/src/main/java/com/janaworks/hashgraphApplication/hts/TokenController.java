@@ -1,29 +1,31 @@
 package com.janaworks.hashgraphApplication.hts;
 
-import com.hedera.hashgraph.sdk.AccountId;
-import com.hedera.hashgraph.sdk.Key;
 import com.janaworks.hashgraphApplication.hts.tknModel.Token;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
+@CrossOrigin
+@RequestMapping(path = "/token")
 public class TokenController {
-    Token token;
+    //Token token;
     TokenService tokenService;
     public TokenController(){
-        token=new Token();
+        //token=new Token();
         tokenService=new TokenService();
     }
 
-    @PostMapping("")
-    public Token createToken(@RequestParam String tokenName, String tokenSymbol, AccountId treasuryAccountId, Key adminKey){
-        token.setTokenName(tokenName);
-        token.setTokenSymbol(tokenSymbol);
-        token.setTreasuryAccountId(treasuryAccountId);
-        token.setAdminKey(adminKey);
-
+    @PostMapping("/create")
+    public byte[] createToken(@RequestBody byte[] token){
+//        token.setTokenName(tokenName);
+//        token.setTokenSymbol(tokenSymbol);
+//        token.setTreasuryAccountId(treasuryAccountId);
+//        token.setAdminKey(adminKey);
+//        String tokenName, String tokenSymbol, AccountId treasuryAccountId, Key adminKey
         return tokenService.createToken(token);
     }
 
+    @PostMapping("/getInfo")
+    public Token tokenInfo(@RequestBody Token token){
+        return tokenService.tokenInfo(token);
+    }
 }

@@ -8,7 +8,9 @@ import java.util.Objects;
 
 public class EnvUtils {
     static Dotenv getEnv() {
-        return Dotenv.load();
+       return Dotenv.configure().directory("E:\\hashgraphApplication\\hashgraphApplication").load();
+
+        //return Dotenv.load();
     }
 
     public static Hedera_Environment getHederaEnvironment() {

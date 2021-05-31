@@ -1,104 +1,121 @@
 package com.janaworks.hashgraphApplication.hts.tknModel;
 
-import com.hedera.hashgraph.sdk.AccountId;
-import com.hedera.hashgraph.sdk.Key;
-import com.hedera.hashgraph.sdk.TokenId;
-
 import java.io.Serializable;
 import java.time.Instant;
 
 public class Token implements Serializable {
-    private String tokenName;
-    private String tokenSymbol;
-    private AccountId TreasuryAccountId;
-    private Key AdminKey;
-    private Key KycKey;
-    private Key FreezeKey;
-    private Key WipeKey;
-    private Key SupplyKey;
-    private boolean FreezeDefault;
+    private String autoRenewAccount;
+
+    private int decimals;
+    private String name;
+    private String symbol;
+    private String treasury;
+    private String adminKey;
+    private String kycKey;
+    private String freezeKey;
+    private String wipeKey;
+    private String supplyKey;
+    private boolean defaultFreezeStatus;
+    private String key;
     private Instant ExpirationTime;
     private String TokenMemo;
-    private TokenId tokenId;
+    private String tokenId;
+    private long totalSupply;
 
-    public TokenId getTokenId() {
-        return tokenId;
+    public String getAutoRenewAccount() {
+        return autoRenewAccount;
     }
 
-    public void setTokenId(TokenId tokenId) {
-        this.tokenId = tokenId;
+    public void setAutoRenewAccount(String autoRenewAccount) {
+        this.autoRenewAccount = autoRenewAccount;
     }
 
-    public String getTokenName() {
-        return tokenName;
+    public int getDecimals() {
+        return decimals;
     }
 
-    public void setTokenName(String tokenName) {
-        this.tokenName = tokenName;
+    public void setDecimals(int decimals) {
+        this.decimals = decimals;
     }
 
-    public String getTokenSymbol() {
-        return tokenSymbol;
+    public String getName() {
+        return name;
     }
 
-    public void setTokenSymbol(String tokenSymbol) {
-        this.tokenSymbol = tokenSymbol;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public AccountId getTreasuryAccountId() {
-        return TreasuryAccountId;
+    public String getSymbol() {
+        return symbol;
     }
 
-    public void setTreasuryAccountId(AccountId treasuryAccountId) {
-        TreasuryAccountId = treasuryAccountId;
+    public void setSymbol(String symbol) {
+        this.symbol = symbol;
     }
 
-    public Key getAdminKey() {
-        return AdminKey;
+    public String getTreasury() {
+        return treasury;
     }
 
-    public void setAdminKey(Key adminKey) {
-        AdminKey = adminKey;
+    public void setTreasury(String treasury) {
+        this.treasury = treasury;
     }
 
-    public Key getKycKey() {
-        return KycKey;
+    public String getAdminKey() {
+        return adminKey;
     }
 
-    public void setKycKey(Key kycKey) {
-        KycKey = kycKey;
+    public void setAdminKey(String adminKey) {
+        this.adminKey = adminKey;
     }
 
-    public Key getFreezeKey() {
-        return FreezeKey;
+    public String getKycKey() {
+        return kycKey;
     }
 
-    public void setFreezeKey(Key freezeKey) {
-        FreezeKey = freezeKey;
+    public void setKycKey(String kycKey) {
+        this.kycKey = kycKey;
     }
 
-    public Key getWipeKey() {
-        return WipeKey;
+    public String getFreezeKey() {
+        return freezeKey;
     }
 
-    public void setWipeKey(Key wipeKey) {
-        WipeKey = wipeKey;
+    public void setFreezeKey(String freezeKey) {
+        this.freezeKey = freezeKey;
     }
 
-    public Key getSupplyKey() {
-        return SupplyKey;
+    public String getWipeKey() {
+        return wipeKey;
     }
 
-    public void setSupplyKey(Key supplyKey) {
-        SupplyKey = supplyKey;
+    public void setWipeKey(String wipeKey) {
+        this.wipeKey = wipeKey;
     }
 
-    public boolean isFreezeDefault() {
-        return FreezeDefault;
+    public String getSupplyKey() {
+        return supplyKey;
     }
 
-    public void setFreezeDefault(boolean freezeDefault) {
-        FreezeDefault = freezeDefault;
+    public void setSupplyKey(String supplyKey) {
+        this.supplyKey = supplyKey;
+    }
+
+    public boolean isDefaultFreezeStatus() {
+        return defaultFreezeStatus;
+    }
+
+    public void setDefaultFreezeStatus(boolean defaultFreezeStatus) {
+        this.defaultFreezeStatus = defaultFreezeStatus;
+    }
+
+    public String getKey() {
+        return key;
+    }
+
+    public void setKey(String key) {
+        this.key = key;
     }
 
     public Instant getExpirationTime() {
@@ -116,5 +133,42 @@ public class Token implements Serializable {
     public void setTokenMemo(String tokenMemo) {
         TokenMemo = tokenMemo;
     }
-//private AccountId AutoRenewAccountId;
+
+    public String getTokenId() {
+        return tokenId;
+    }
+
+    public void setTokenId(String tokenId) {
+        this.tokenId = tokenId;
+    }
+
+    public long getTotalSupply() {
+        return totalSupply;
+    }
+
+    public void setTotalSupply(long totalSupply) {
+        this.totalSupply = totalSupply;
+    }
+
+    @Override
+    public String toString() {
+        return "Token{" +
+                "autoRenewAccount='" + autoRenewAccount + '\'' +
+                ", decimals=" + decimals +
+                ", name='" + name + '\'' +
+                ", symbol='" + symbol + '\'' +
+                ", treasury='" + treasury + '\'' +
+                ", adminKey='" + adminKey + '\'' +
+                ", kycKey='" + kycKey + '\'' +
+                ", freezeKey='" + freezeKey + '\'' +
+                ", wipeKey='" + wipeKey + '\'' +
+                ", supplyKey='" + supplyKey + '\'' +
+                ", defaultFreezeStatus=" + defaultFreezeStatus +
+                ", key='" + key + '\'' +
+                ", ExpirationTime=" + ExpirationTime +
+                ", TokenMemo='" + TokenMemo + '\'' +
+                ", tokenId='" + tokenId + '\'' +
+                ", totalSupply=" + totalSupply +
+                '}';
+    }
 }
